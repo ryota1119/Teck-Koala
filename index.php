@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -15,43 +16,75 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="l-main">
+	<div class="p-fv">
+		<img src="http://localhost:8080/wp-content/uploads/2023/01/main_fv-e1674894807742.jpg" alt="">
+	</div>
 
-		<?php
-		if ( have_posts() ) :
+	<div class="p-theme c-section">
+		<div class="c-inner">
+			<div class="c-section__title">
+				<h1>トップページの見出し</h1>
+			</div>
+			<div class="c-section__text">
+				<p>薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
+					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。</p>
+			</div>
+		</div>
+	</div>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+	<div class="p-post c-section">
+		<div class="c-inner">
+			<div class="c-section__title">
+				<h1>Blog</h1>
+			</div>
+
+			<div class="p-post__articles">
 				<?php
-			endif;
+				if (have_posts()) :
+				?>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				<?php
+					/* Start the Loop */
+					while (have_posts()) :
+						the_post();
 
-				/*
+						/*
 				 * Include the Post-Type-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+						// get_template_part( 'template-parts/content', get_post_type() );
+						get_template_part('template-parts/content', 'top');
 
-			endwhile;
+					endwhile;
 
-			the_posts_navigation();
+					the_posts_pagination(array(
+						// 'mid_size' => 2,
+						'prev_text' => '<i class="fas fa-chevron-left"></i>',
+						'prev_text' => '<img src="http://localhost:8080/wp-content/uploads/2023/01/Frame-13.png" alt="">',
+						'next_text' => '<img src="http://localhost:8080/wp-content/uploads/2023/01/Frame-14.png" alt="">',
+						'type'      => 'list',
+					));
 
-		else :
+				else :
 
-			get_template_part( 'template-parts/content', 'none' );
+					get_template_part('template-parts/content', 'none');
 
-		endif;
-		?>
+				endif;
+				?>
 
-	</main><!-- #main -->
+			</div>
+
+</main><!-- #main -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

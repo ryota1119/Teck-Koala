@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/**
+ * ***************************************
+ * ページ全体に関わるCSSの設定
+ * ***************************************
+ */
+html *,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+/* フォント */
+html {
+  font-size: 62.5%;
+  line-height: 1.6;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+body {
+  color: #333333;
+  font-size: 1.6rem;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400; /* Noto Sans JPのレギュラーウェイトを指定 */
+  min-width: 350px;
+  width: 100%;
+  overflow-x: hidden;
+}
+/* おもな太字タグのフォントウェイト設定 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+strong {
+  font-weight: 700;
+}
+/* ベースのリンクカラー */
+a {
+  color: #f30;
+  text-decoration: underline;
+  transition: 0.4s;
+  &:hover {
+    text-decoration: none;
+  }
+}
+a:hover img {
+  text-decoration: none;
+  opacity: 0.8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* レスポンシブイメージと画像下スペース防止 */
+img {
+  max-width: 100%;
+  height: auto;
+  border: none;
+  vertical-align: bottom; /* 画像下のスペースを消す */
+}

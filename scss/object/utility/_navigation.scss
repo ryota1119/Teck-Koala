@@ -1,0 +1,25 @@
+@use "./../../foundation/variable" as *;
+
+.pagination {
+  margin-top: 66px;
+  .nav-links {
+    color: $color-main;
+    .page-numbers {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .current {
+        color: $color-black;
+      }
+      .page-numbers {
+        font-size: 20px;
+        // font-weight: 600;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+      .page-numbers:nth-child(n + 1) {
+        margin-left: 36px;
+      }
+    }
+  }
+}

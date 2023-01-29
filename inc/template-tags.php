@@ -19,15 +19,15 @@ if ( ! function_exists( 'tech_koala_posted_on' ) ) :
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
+			esc_attr( get_the_date() ),
+			esc_html( 'on ' . get_the_date( 'Y/m/d' ) ),
+			esc_attr( get_the_modified_date() ),
+			esc_html( ' updated ' . get_the_modified_date( 'Y/m/d' ) )
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'tech-koala' ),
+			esc_html_x( '%s', 'post date', 'tech-koala' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -43,7 +43,7 @@ if ( ! function_exists( 'tech_koala_posted_by' ) ) :
 	function tech_koala_posted_by() {
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'tech-koala' ),
+			esc_html_x( 'writed by %s', 'post author', 'tech-k	oala' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 

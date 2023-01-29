@@ -1,0 +1,67 @@
+@use "../../foundation/variable" as *;
+
+.p-article {
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 387px calc(100% - 387px - 41px);
+  column-gap: 41px;
+  &__thumbnail {
+    img {
+      width: 387px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+  }
+  &__content {
+    .article-title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 160%;
+      /* or 51px */
+      letter-spacing: -0.03em;
+      margin-bottom: 2px;
+    }
+    .article-data {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+      /* identical to box height, or 16px */
+      color: $color-main;
+      margin-bottom: 12px;
+    }
+    .article-text {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      /* or 32px */
+      margin-bottom: 7px;
+    }
+    .article-tags {
+      display: flex;
+      align-items: center;
+      .font-size {
+        font-size: 1.6rem;
+      }
+      .tags-links ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      li {
+        margin-left: 16px;
+        line-height: 1rem;
+        a {
+          font-size: 1rem;
+          color: $color-main;
+          background-color: #F5F5F5;
+          padding: 6px 10px 6px 10px;
+          border-radius: 5px;
+        }
+        a::before {
+          content: "#";
+        }
+      }
+    }
+  }
+}
