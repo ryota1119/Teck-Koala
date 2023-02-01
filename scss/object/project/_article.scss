@@ -1,35 +1,70 @@
 @use "../../foundation/variable" as *;
 
 .p-article {
-  margin-bottom: 24px;
+  margin-bottom: 48px;
   display: grid;
-  grid-template-columns: 387px calc(100% - 387px - 41px);
+  grid-template-columns: calc(100% - 220px - 41px) 220px;
   column-gap: 41px;
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 160%;
+    /* or 51px */
+    letter-spacing: -0.03em;
+    word-wrap: break-word;
+  }
+  &__data {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5em;
+    /* identical to box height, or 16px */
+    color: $color-main;
+  }
+  &__text {
+    font-size: 2rem;
+    line-height: 1.5em;
+
+  }
+  &__tags {
+    display: flex;
+    margin: 1rem 0;
+    .icon-size {
+      font-size: 2rem;
+      padding-top: 0.5rem;
+    }
+    .tags-links ul {
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      line-height: 3rem;
+    }
+    li {
+      margin-left: 16px;
+      a {
+        font-size: 1.6rem;
+        color: $color-main;
+        background-color: #f5f5f5;
+        padding: 6px 10px 6px 10px;
+        border-radius: 5px;
+      }
+      a::before {
+        content: "#";
+      }
+    }
+  }
+  .jc-center {
+    margin-top: 20px;
+    justify-content: center;
+  }
   &__thumbnail {
     img {
-      width: 387px;
+      width: 220px;
       height: 220px;
       object-fit: cover;
       border-radius: 24px;
     }
   }
   &__content {
-    .article-title {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 160%;
-      /* or 51px */
-      letter-spacing: -0.03em;
-      margin-bottom: 2px;
-    }
-    .article-data {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 100%;
-      /* identical to box height, or 16px */
-      color: $color-main;
-      margin-bottom: 12px;
-    }
     .article-text {
       font-weight: 400;
       font-size: 20px;
@@ -37,31 +72,11 @@
       /* or 32px */
       margin-bottom: 7px;
     }
-    .article-tags {
-      display: flex;
-      align-items: center;
-      .font-size {
-        font-size: 1.6rem;
-      }
-      .tags-links ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      li {
-        margin-left: 16px;
-        line-height: 1rem;
-        a {
-          font-size: 1rem;
-          color: $color-main;
-          background-color: #F5F5F5;
-          padding: 6px 10px 6px 10px;
-          border-radius: 5px;
-        }
-        a::before {
-          content: "#";
-        }
-      }
-    }
+  }
+}
+.tag-sticky {
+  .p-article__title::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f249\00A0";
   }
 }

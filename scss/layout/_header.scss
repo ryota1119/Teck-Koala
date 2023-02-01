@@ -14,16 +14,15 @@
   }
   &__title {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 2.4rem;
   }
   &__nav ul {
     display: flex;
     li {
       padding-left: 48px;
-      font-size: 20px;
       a {
         padding-bottom: 3px;
-        font-size: 20px;
+        font-size: 2rem;
       }
       a:after {
         content: '';

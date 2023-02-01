@@ -1,0 +1,200 @@
+@use "../../foundation/variable" as *;
+
+.p-article-format {
+  h2,
+  h3,
+  h4 {
+    font-size: 2.4rem;
+    line-height: 1.6em;
+    margin: 4em 0 2em;
+  }
+  h2 {
+    background: #7a8285;
+    padding: 0.25em 1em;
+    color: $color-base;
+    position: relative;
+  }
+  h2::before {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    content: "";
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 4px);
+    box-sizing: content-box;
+    border-top: solid 2px $color-main;
+    border-bottom: solid 2px $color-main;
+  }
+  h3 {
+    padding: 0.25em 0.5em;
+    color: $color-black;
+    background: transparent;
+    border-left: solid 5px $color-main;
+  }
+  h4 {
+    color: $color-main;
+    padding: 0 0 0 16px;
+    border-left: solid 2px $color-main;
+  }
+  h5 {
+    font-size: 1.6rem;
+    color: $color-main;
+    font-weight: 700;
+  }
+  h6 {
+  }
+  p {
+    font-size: 1.6rem;
+    line-height: 1.5em;
+    margin-bottom: 60px;
+  }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $color-main;
+  }
+  pre {
+    font-size: 1.4rem;
+    padding: 20px;
+    margin: 20px 0;
+    background: $color-black;
+    line-height: 1.5rem;
+    width: 100%;
+    overflow: auto;
+    overflow-y: hidden;
+    color: $color-main;
+  }
+  pre code {
+    margin: 0 0 0 40px;
+    padding: 18px 0;
+    display: block;
+  }
+  .code {
+    margin: 20px 0;
+  }
+  blockquote {
+    position: relative;
+    border-left: 3px solid $color-main;
+    padding-left: 10px;
+    margin: 20px;
+    color: $color-main;
+  }
+  blockquote:before {
+    position: absolute;
+    font-family: "FontAwesome";
+    content: "\f10d";
+    font-size: 2rem;
+    color: $color-main;
+  }
+  blockquote p {
+    position: relative;
+    padding-left: 30px;
+    margin: 0;
+  }
+  blockquote cite {
+    display: block;
+    color: $color-main;
+    text-align: right;
+  }
+  table {
+    width: 100%;
+    font-size: 1.6rem;
+    thead {
+      tr {
+        th {
+          text-align: center;
+          border: none;
+          border-bottom: 3px solid $color-main;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          border: none;
+          border-bottom: 1px solid $color-main;
+        }
+        td:first-child,
+        td:nth-child(2) {
+          white-space: nowrap;
+          text-align: center;
+        }
+      }
+    }
+  }
+  ul {
+    margin: 10px;
+    li {
+      position: relative;
+      padding-left: 20px;
+      ol {
+        li {
+          padding-left: 0;
+        }
+        li::before {
+          content: "";
+        }
+      }
+    }
+    li::before {
+      content: "\f14a";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $color-main;
+    }
+  }
+  ol {
+    padding-left: 20px;
+    margin: 10px;
+    li {
+      list-style: upper-roman;
+      ul {
+        li {
+          list-style: none;
+        }
+      }
+    }
+    li::marker {
+      color: $color-main;
+    }
+  }
+  form {
+    text-align: center;
+    input {
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+      color: $color-main;
+      &[type="password"] {
+        border: 2px solid $color-main;
+      }
+    }
+  }
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.page-links {
+  margin-top: 50px;
+  text-align: center;
+  .post-page-numbers {
+    color: $color-main;
+  }
+  .post-page-numbers:nth-child(n + 2) {
+    margin-left: 30px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .current {
+    color: $color-black;
+  }
+}

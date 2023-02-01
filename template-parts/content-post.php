@@ -10,19 +10,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('p-article'); ?>>
-	<div class="p-article__content">
-		<?php the_title('<h2 class="p-article__title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
-		<div class="p-article__data">
+<div class="c-inner">
+	<div class="u-post__header">
+		<div class="p-article__data text-center">
 			<?php
 			tech_koala_posted_on();
 			tech_koala_posted_by();
 			?>
 		</div>
-		<div class="p-article__text">
-			<?php the_excerpt(); ?>
-		</div>
-		<div class="p-article__tags">
+		<?php the_title('<h1 class="p-article__title text-center">', '</h1>'); ?>
+		<div class="p-article__tags jc-center">
 			<?php
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list('<ul><li class="tag-list">', '</li class="tag-list"><li>', '</li></ul>');
@@ -35,7 +32,31 @@
 			} ?>
 		</div>
 	</div>
-	<div class="p-article__thumbnail">
-		<?php tech_koala_post_thumbnail(); ?>
+	<?php tech_koala_post_thumbnail(); ?>
+
+	<div class="p-article-format">
+		<?php
+		the_content(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'tech-koala'),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				wp_kses_post(get_the_title())
+			)
+		);
+
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">',
+				'after'  => '</div>',
+			)
+		);
+		?>
 	</div>
-</article><!-- #post-<?php the_ID(); ?> -->
+</div>

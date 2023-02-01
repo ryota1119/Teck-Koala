@@ -182,16 +182,58 @@ if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/**
- * アイキャッチデフォルト設定
+// /**
+//  * アイキャッチデフォルト設定
+//  */
+// add_action('save_post', 'save_default_thumbnail');
+// function save_default_thumbnail($post_id)
+// {
+// 	$post_thumbnail = get_post_meta($post_id, $key = '_thumbnail_id', $single = true);
+// 	if (!wp_is_post_revision($post_id)) {
+// 		if (empty($post_thumbnail)) {
+// 			update_post_meta($post_id, $meta_key = '_thumbnail_id', $meta_value = '2147');
+// 		}
+// 	}
+// }
+
+/** 
+ * the_archive_title 余計な文字を削除
  */
-add_action('save_post', 'save_default_thumbnail');
-function save_default_thumbnail($post_id)
-{
-	$post_thumbnail = get_post_meta($post_id, $key = '_thumbnail_id', $single = true);
-	if (!wp_is_post_revision($post_id)) {
-		if (empty($post_thumbnail)) {
-			update_post_meta($post_id, $meta_key = '_thumbnail_id', $meta_value = '2121');
-		}
+add_filter('get_the_archive_title', function ($title) {
+	if (is_category()) {
+		$title = single_cat_title('', false);
+	} elseif (is_tag()) {
+		$title = single_tag_title('', false);
+	} elseif (is_tax()) {
+		$title = single_term_title('', false);
+	} elseif (is_post_type_archive()) {
+		$title = post_type_archive_title('', false);
+	} elseif (is_date()) {
+		$title = get_the_time('Y年n月');
+	} elseif (is_search()) {
+		$title = '検索結果：' . esc_html(get_search_query(false));
+	} elseif (is_404()) {
+		$title = '「404」ページが見つかりません';
+	} else {
 	}
+	return $title;
+});
+
+// 「保護中:」の部分を変更
+function change_ppp_title_prefix($title) {
+  $title = str_replace('保護中: ', 'パスワード必須: ', $title);
+  return $title;
 }
+add_filter( 'the_title', 'change_ppp_title_prefix' );
+
+// 入力周りを変更
+function custom_password_form() {
+  global $post;
+  $label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+  $o = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">
+  <p>このコンテンツはパスワードで保護されています。<br />閲覧するには以下にパスワードを入力してください。</p>
+  <label for="' . $label . '">' . __( "Password" ) . ' </label><input name="post_password" id="' . $label . '" type="password" maxlength="20" /> <input type="submit" name="Submit" value="' . esc_attr__( "確定" ) . '" />
+  </form>';
+  return $o;
+}
+add_filter( 'the_password_form', 'custom_password_form' );

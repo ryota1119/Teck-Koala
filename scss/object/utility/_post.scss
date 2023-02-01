@@ -1,0 +1,13 @@
+@use "./../../foundation/variable" as *;
+
+.u-post {
+  &__header {
+    margin: 50px 0 30px;
+  }
+  &__thumbnail {
+    img {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}

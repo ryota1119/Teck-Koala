@@ -18,7 +18,7 @@ get_header();
 
 <main id="primary" class="l-main">
 	<div class="p-fv">
-		<img src="http://localhost:8080/wp-content/uploads/2023/01/main_fv-e1674894807742.jpg" alt="">
+		<img src="http://localhost:8080/wp-content/uploads/2023/02/eyecatch-image.jpg" alt="">
 	</div>
 
 	<div class="p-theme c-section">
@@ -40,18 +40,15 @@ get_header();
 		</div>
 	</div>
 
-	<div class="p-post c-section">
+	<div class="p-posts c-section">
 		<div class="c-inner">
 			<div class="c-section__title">
 				<h1>Blog</h1>
 			</div>
 
-			<div class="p-post__articles">
+			<div class="p-posts__articles">
 				<?php
 				if (have_posts()) :
-				?>
-
-				<?php
 					/* Start the Loop */
 					while (have_posts()) :
 						the_post();

@@ -28,7 +28,7 @@ if ( ! function_exists( 'tech_koala_posted_on' ) ) :
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
 			esc_html_x( '%s', 'post date', 'tech-koala' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			$time_string
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -44,7 +44,7 @@ if ( ! function_exists( 'tech_koala_posted_by' ) ) :
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x( 'writed by %s', 'post author', 'tech-k	oala' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -127,8 +127,8 @@ if ( ! function_exists( 'tech_koala_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+			<div class="u-post__thumbnail">
+				<?php the_post_thumbnail( 740, 9999 ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>

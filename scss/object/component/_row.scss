@@ -1,0 +1,7 @@
+@use "./../../foundation/variable" as *;
+
+.c-row {
+  display: grid;
+  grid-template-columns: calc(100% - 304px - 52px) 304px;
+  column-gap: 52px;
+}
