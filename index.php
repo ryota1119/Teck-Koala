@@ -8,8 +8,6 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package Tech_Koala
  */
 
@@ -17,68 +15,26 @@ get_header();
 ?>
 
 <main id="primary" class="l-main">
-	<div class="p-fv">
-		<img src="http://localhost:8080/wp-content/uploads/2023/02/eyecatch-image.jpg" alt="">
-	</div>
+	<?php
+	get_template_part('template-parts/fv');
+	?>
 
 	<div class="p-theme c-section">
 		<div class="c-inner">
 			<div class="c-section__title">
-				<h1>トップページの見出し</h1>
+				<h1>薔薇コアラBlogとは、</h1>
 			</div>
 			<div class="c-section__text">
-				<p>薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。
-					薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇薔薇。</p>
+				<p>初めまして、薔薇コアラBlogの人です。</p>
+				<p>福岡県内でWebエンジニアの仕事をしています。</p>
+				<p>このブログの主な目的は、業務中で調べた内容などを備忘録として残していくだけです。</p>
+				<p>都度調べて、明日には忘れている私とはこれでおさらばしたい。</p>
+				<p>フロント関連の知識などはこのブログに随時取り入れていきます☻ </p>
 			</div>
 		</div>
 	</div>
 
-	<div class="p-posts c-section">
-		<div class="c-inner">
-			<div class="c-section__title">
-				<h1>Blog</h1>
-			</div>
-
-			<div class="p-posts__articles">
-				<?php
-				if (have_posts()) :
-					/* Start the Loop */
-					while (have_posts()) :
-						the_post();
-
-						/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-						// get_template_part( 'template-parts/content', get_post_type() );
-						get_template_part('template-parts/content', 'top');
-
-					endwhile;
-
-					the_posts_pagination(array(
-						// 'mid_size' => 2,
-						'prev_text' => '<i class="fas fa-chevron-left"></i>',
-						'prev_text' => '<img src="http://localhost:8080/wp-content/uploads/2023/01/Frame-13.png" alt="">',
-						'next_text' => '<img src="http://localhost:8080/wp-content/uploads/2023/01/Frame-14.png" alt="">',
-						'type'      => 'list',
-					));
-
-				else :
-
-					get_template_part('template-parts/content', 'none');
-
-				endif;
-				?>
-
-			</div>
+	<?php get_template_part('template-parts/article', 'list'); ?>
 
 </main><!-- #main -->
 

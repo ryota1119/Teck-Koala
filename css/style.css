@@ -516,6 +516,7 @@ th {
   margin-top: 86px;
 }
 .c-section__title {
+  display: flex;
   font-style: normal;
   font-weight: 700;
   font-size: 4.6rem;
@@ -527,6 +528,10 @@ th {
   font-weight: 400;
   font-size: 2rem;
   line-height: 1.5em;
+}
+.c-section .archive-description {
+  font-size: 2.4rem;
+  font-weight: 400;
 }
 
 .c-row {
@@ -623,7 +628,7 @@ th {
   line-height: 3rem;
 }
 .p-article__tags li {
-  margin-left: 16px;
+  margin-left: 1rem;
 }
 .p-article__tags li a {
   font-size: 1.6rem;
@@ -842,6 +847,43 @@ th {
   color: #333;
 }
 
+#ez-toc-container {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 1em 1em 1em 2em;
+  border-top: 4px double #7a8285;
+  border-bottom: 4px double #7a8285;
+  background-image: linear-gradient(-45deg, transparent 25%, #eee 25%, #eee 50%, transparent 50%, transparent 75%, #eee 75%, #eee);
+  background-clip: padding-box;
+  background-size: 4px 4px;
+}
+#ez-toc-container .ez-toc-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 0;
+}
+#ez-toc-container nav ul {
+  list-style-type: disc;
+  margin: 0;
+  padding: 0 1.2em;
+  overflow: hidden;
+}
+#ez-toc-container nav ul ul {
+  margin-top: 5px;
+}
+#ez-toc-container nav ul li {
+  padding: 5px 0;
+}
+#ez-toc-container nav ul li a .toc-004 a {
+  color: #7a8285;
+  text-decoration: none;
+}
+#ez-toc-container nav ul li::before {
+  content: "";
+}
+
 .p-cp__text {
   font-size: 14px;
 }
@@ -867,6 +909,10 @@ th {
 }
 .pagination .nav-links .page-numbers .page-numbers:nth-child(n+1) {
   margin-left: 36px;
+}
+.pagination .nav-links .page-numbers img {
+  width: 5rem;
+  color: #7a8285;
 }
 
 .u-post__header {

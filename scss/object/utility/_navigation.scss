@@ -20,6 +20,10 @@
       .page-numbers:nth-child(n + 1) {
         margin-left: 36px;
       }
+      img {
+        width: 5rem;
+        color: $color-main;
+      }
     }
   }
 }
