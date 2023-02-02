@@ -1,0 +1,104 @@
+@use "./../../foundation/variable" as *;
+
+.p-contact {
+  &__form {
+    div.wpcf7 {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 0px;
+      border-radius: 1rem;
+      margin: 0 auto 30px;
+      width: 700px;
+      p {
+        padding: 20px 20px 0;
+        margin: 0;
+        font-size: 1.6rem;
+      }
+      input,
+      textarea {
+        border: 1px solid #ccc;
+        padding: 8px;
+        font-size: 1.4rem;
+      }
+      textarea {
+        width: 97.5%;
+        height: 200px;
+      }
+      input.wpcf7-submit {
+        cursor: pointer;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.6rem;
+        width: 200px;
+        height: 45px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 5px;
+        background: $color-main;
+        // box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5),
+        //   inset 0px 32px 0px -12px #808080;
+        border: 1px solid #666;
+        text-align: center;
+      }
+      input.wpcf7-submit:hover {
+        background: $color-black;
+        // box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5),
+        //   inset 0px 32px 0px -12px #007ea8;
+        border: 1px solid $color-black;
+      }
+      input.wpcf7-submit:active {
+        box-shadow: none;
+        bottom: -2px;
+        position: relative;
+      }
+      input:focus,
+      textarea:focus {
+        border: 1px solid $color-main;
+      }
+    }
+    .wpcf7-captchac {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      width: 10rem;
+      margin-bottom: 1rem;
+    }
+    .form-captcha {
+      width: 100px;
+    height: 45px;
+    }
+    .wpcf7-form-control 
+    .wpcf7 .wpcf7-not-valid {
+      background: #ffb6c1;
+      span.wpcf7-not-valid-tip {
+        font-size: 80%;
+      }
+      .wpcf7-response-output {
+        margin: 10px 0 0;
+        padding: 8px 35px 8px 14px;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+      }
+      .wpcf7-validation-errors {
+        color: #b94a48;
+        background-color: #f2dede;
+        border: 1px solid #eed3d7;
+      }
+      .wpcf7-mail-sent-ok {
+        color: #3a87ad;
+        background-color: #d9edf7;
+        border: 1px solid #bce8f1;
+      }
+    }
+
+    /* 必須赤色表示 */
+    .wpcf7 .required {
+      color: #f00;
+    }
+    /* 任意緑色表示 */
+    .wpcf7 .any {
+      color: #080;
+    }
+  }
+}
